@@ -3,6 +3,13 @@ const express = require("express");
 // const mysql = require("mysql");
 // const dotenv = require("dotenv");
 
+const{
+  PORT = 5088,
+  NODE_ENV = 'development',
+}=process.env;
+
+const IN_PROD = NODE_ENV === 'production';
+
 
 const app = express();
 
@@ -47,6 +54,6 @@ app.get("/product",(req,res)=>{
 
 
 
-app.listen(5088,()=>{
-    console.log("Server started on port 5088")
+app.listen(PORT,()=>{
+    console.log(`Server started on port ${PORT}`)
 })
